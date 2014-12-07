@@ -1,45 +1,46 @@
-
+<!DOCTYPE html>
 <!-- design for: text, photo, link, video -->
 <html>
   <head>
     <title>{Title}</title>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='alternate' type='application/rss+xml' href='{RSS}' />
-    <link rel='stylesheet' href='http://cicirao.github.io/fyl/css/reset.css' />
-    <link rel='stylesheet' href='http://cicirao.github.io/fyl/css/screen.css' />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="{RSS}" rel="alternate" type="application/rss+xml">
+    <link href="http://cicirao.github.io/fyl/css/reset.css" rel="stylesheet">
+    <link href="http://cicirao.github.io/fyl/css/screen.css" rel="stylesheet">
   </head>
   <body>
-    <div id='page'>
+    <div id="page">
       <header>
         <h2>{Title}</h2>
         {block:Description}
         <p>{Description}</p>
         {/block:Description}
       </header>
-      <main id='main'>
+      <main id="main">
         {block:Posts}
         {block:Text}
         <article>
           {block:Title}
           <header>
             <h3>
-              <a href='{Permalink}'>{Title}</a>
+              <a href="{Permalink}">{Title}</a>
             </h3>
           </header>
           {/block:Title}
-          <div class='content'>{Body}</div>
+          <div class="content">{Body}</div>
           <footer>
             <ul>
               <li>
-                <a href='{Permalink}'>Post Permalink</a>
+                <a href="{Permalink}">Post Permalink</a>
               </li>
-              {/block:HasTags}
-              <li>Tagged
+              {block:HasTags}
+              <li>
+                Tagged
                 <ul>
                   {block:Tags}
                   <li>
-                    <a href='{TagURL}'>{Tag}</a>
+                    <a href="{TagURL}">{Tag}</a>
                   </li>
                   {/block:Tags}
                 </ul>
@@ -50,24 +51,28 @@
         </article>
         {/block:Text}
         {block:Photo}
-          <!-- how can I make the img self closed without this comment? -->
-          <img class='profile' src='{PhotoURL-HighRes}' alt='{PhotoAlt}' title='{PhotoAlt}' />
+        <div class="photo">
+          <img alt="{PhotoAlt}" class="profile" src="{PhotoURL-HighRes}" title="{PhotoAlt}">
+          <!-- render haml with the option "-f xhtml" to get a closing slash in <img> -->
           {block:Caption}
-            {Caption}
+          {Caption}
           {/block:Caption}
+        </div>
         {/block:Photo}
         {block:Link}
+        <div class="link">
           <!-- the {Target} is a little tricky, not sure where to put it -->
-          <a href='{URL}'>{Name}</a>
+          <a href="{URL}">{Name}</a>
           {block:Description}
-            {Description}
+          {Description}
           {/block:Description}
+        </div>
         {/block:Link}
         {block:Video}
-        <div class='post'>
+        <div class="video">
           {Video-500}
           {block:Caption}
-            {Caption}
+          {Caption}
           {/block:Caption}
         </div>
         {/block:Video}
@@ -78,11 +83,12 @@
         {/block:Posts}
       </main>
       <footer>
-        <a href='{RSS}'>RSS Feed    </a>
+        <a href="{RSS}">RSS Feed</a>
       </footer>
     </div>
-    <script src='http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
     <!-- Inner js is a tricky in haml -->
+    <!-- Unless you use the ":javascript" filter -->
     <script>
       WebFont.load({
         google: {
