@@ -1,0 +1,94 @@
+
+<!-- design for: text, photo, link, video -->
+<html>
+  <head>
+    <title>{Title}</title>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='alternate' type='application/rss+xml' href='{RSS}' />
+    <link rel='stylesheet' href='http://cicirao.github.io/fyl/css/reset.css' />
+    <link rel='stylesheet' href='http://cicirao.github.io/fyl/css/screen.css' />
+  </head>
+  <body>
+    <div id='page'>
+      <header>
+        <h2>{Title}</h2>
+        {block:Description}
+        <p>{Description}</p>
+        {/block:Description}
+      </header>
+      <main id='main'>
+        {block:Posts}
+        {block:Text}
+        <article>
+          {block:Title}
+          <header>
+            <h3>
+              <a href='{Permalink}'>{Title}</a>
+            </h3>
+          </header>
+          {/block:Title}
+          <div class='content'>{Body}</div>
+          <footer>
+            <ul>
+              <li>
+                <a href='{Permalink}'>Post Permalink</a>
+              </li>
+              {/block:HasTags}
+              <li>Tagged
+                <ul>
+                  {block:Tags}
+                  <li>
+                    <a href='{TagURL}'>{Tag}</a>
+                  </li>
+                  {/block:Tags}
+                </ul>
+              </li>
+              {/block:HasTags}
+            </ul>
+          </footer>
+        </article>
+        {/block:Text}
+        {block:Photo}
+          <!-- how can I make the img self closed without this comment? -->
+          <img class='profile' src='{PhotoURL-HighRes}' alt='{PhotoAlt}' title='{PhotoAlt}' />
+          {block:Caption}
+            {Caption}
+          {/block:Caption}
+        {/block:Photo}
+        {block:Link}
+          <!-- the {Target} is a little tricky, not sure where to put it -->
+          <a href='{URL}'>{Name}</a>
+          {block:Description}
+            {Description}
+          {/block:Description}
+        {/block:Link}
+        {block:Video}
+        <div class='post'>
+          {Video-500}
+          {block:Caption}
+            {Caption}
+          {/block:Caption}
+        </div>
+        {/block:Video}
+        <ul>
+          <li>{LikeButton}</li>
+          <li>{ReblogButton}</li>
+        </ul>
+        {/block:Posts}
+      </main>
+      <footer>
+        <a href='{RSS}'>RSS Feed    </a>
+      </footer>
+    </div>
+    <script src='http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'></script>
+    <!-- Inner js is a tricky in haml -->
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Open Sans', 'Oswald:300']
+        }
+      });
+    </script>
+  </body>
+</html>

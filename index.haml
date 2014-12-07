@@ -1,8 +1,76 @@
 !!!5
+/ design for: text, photo, link, video
 %html
   %head
     %title {Title}
     %meta{charset:"utf-8"}
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
     %link{rel:"alternate", type:"application/rss+xml", href:"{RSS}"}
-    %link{rel:"stylesheet", href:""}
+    %link{rel:"stylesheet", href:"http://cicirao.github.io/fyl/css/reset.css"}
+    %link{rel:"stylesheet", href:"http://cicirao.github.io/fyl/css/screen.css"}
+  %body
+    #page
+      %header
+        %h2 {Title}
+        -# don't know why here needs a \n
+        {block:Description}
+        %p {Description}
+        {/block:Description}
+      %main#main
+        {block:Posts}
+        {block:Text}
+        %article
+          {block:Title}
+          %header
+            %h3
+              %a{href:"{Permalink}"} {Title}
+          {/block:Title}
+          .content {Body}
+          %footer
+            %ul
+              %li
+                %a{href:"{Permalink}"} Post Permalink
+              {/block:HasTags}
+              %li Tagged
+                %ul
+                  {block:Tags}
+                  %li
+                    %a{href:"{TagURL}"} {Tag}
+                  {/block:Tags}
+              {/block:HasTags}
+        {/block:Text}
+        {block:Photo}
+          / how can I make the img self closed without this comment?
+          %img.profile{src: "{PhotoURL-HighRes}", alt: "{PhotoAlt}", title: "{PhotoAlt}"}
+          {block:Caption}
+            {Caption}
+          {/block:Caption}
+        {/block:Photo}
+        {block:Link}
+          / the {Target} is a little tricky, not sure where to put it
+          %a{href:"{URL}"} {Name}
+          {block:Description}
+            {Description}
+          {/block:Description}
+        {/block:Link}
+        {block:Video}
+        .post
+          {Video-500}
+          {block:Caption}
+            {Caption}
+          {/block:Caption}
+        {/block:Video}
+        %ul
+          %li {LikeButton}
+          %li {ReblogButton}
+        {/block:Posts}
+      %footer
+        %a{href:"{RSS}"} RSS Feed    
+    %script{src:"http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"}
+    / Inner js is a tricky in haml
+    %script
+      WebFont.load({
+        google: {
+          families: ['Open Sans', 'Oswald:300']
+        }
+      });
