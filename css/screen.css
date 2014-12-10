@@ -1,3 +1,4 @@
+/* --------------------- default style  ----------------------- */
 html {
   font: 16px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #677E52;
@@ -22,7 +23,7 @@ h1 {
 
 h2, link a {
   font-size: 2.25em;
-  color: #677E52; }
+  color: #F6E8B1; }
 
 h3 {
   font-size: 1.5em;
@@ -54,5 +55,16 @@ ul {
   padding: 0 0.296em; }
   ul li {
     display: inline-block; }
+
+/* --------------------- Media Query ----------------------- */
+@media screen and (min-width: 40em) {
+  main article {
+    padding: 1.5em; } }
+@media screen and (min-width: 62.8em) {
+  #page {
+    width: 76%; }
+
+  main article {
+    max-width: 60em; } }
 
 /*# sourceMappingURL=screen.css.map */

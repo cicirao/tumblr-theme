@@ -2,7 +2,7 @@
 @import font
 @import typo
 
-// default style 
+/* --------------------- default style  ----------------------- */
 
 html 
   font: $base-size $smallfont-stack
@@ -57,3 +57,18 @@ ul
   padding: 0 0.296em
   li
     display: inline-block
+
+
+/* --------------------- Media Query ----------------------- */
+
+@media screen and (min-width: 40em) 
+  main article
+    padding: 1.5em
+
+
+@media screen and (min-width: 62.8em)
+  #page
+    width: 76%
+
+  main article
+    max-width: 60em
