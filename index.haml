@@ -26,11 +26,13 @@
           {/block:Title}
           .content {Body}
           %footer
+            {block:HasTags} 
             {block:Tags}
             %ul Tagged:
               %li
                 %a{href:"{TagURL}"} {Tag}
               {/block:Tags}
+            {/block:HasTags} 
         {/block:Text}
         {block:Photo}
         %article.photo
@@ -41,11 +43,13 @@
             %h2 {Caption}
           {/block:Caption}
           %footer
+            {block:HasTags} 
             {block:Tags}
             %ul Tagged:
               %li
                 %a{href:"{TagURL}"} {Tag}
               {/block:Tags}
+            {/block:HasTags} 
         {/block:Photo}
         {block:Link}
         / the {Target} is a little tricky, not sure where to put it
@@ -56,18 +60,22 @@
           %a{href:"{URL}"} {Name}
           -# indentation issue
           %footer
+            {block:HasTags} 
             {block:Tags}
             %ul Tagged:
               %li
                 %a{href:"{TagURL}"} {Tag}
               {/block:Tags}
+            {/block:HasTags} 
         {/block:Link}
         {block:Video}
         %article.video
           .content {Video-500}
+            / generate fallback  
             %p 
               If the video can not be displayed, download it 
-              %a{href:"http://vimeo.com/100843896/download?t=1418227080&v=270852594&s=8367e974b694a5efc8ec68f005282a6f"} here
+              / I didn't find a viriable for the download link here
+              %a{href:"#"} here
           -# ??
           {block:Caption}
           %header
@@ -75,11 +83,13 @@
             %h2 {Caption}
           {/block:Caption}
           %footer
+            {block:HasTags} 
             {block:Tags}
             %ul Tagged
               %li
                 %a{href:"{TagURL}"} {Tag}
               {/block:Tags}
+            {/block:HasTags} 
         {/block:Video}
         {/block:Posts}
       %footer

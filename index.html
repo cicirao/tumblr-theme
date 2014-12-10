@@ -28,6 +28,7 @@
           {/block:Title}
           <div class='content'>{Body}</div>
           <footer>
+            {block:HasTags} 
             {block:Tags}
             <ul>Tagged:
               <li>
@@ -35,6 +36,7 @@
               </li>
               {/block:Tags}
             </ul>
+            {/block:HasTags} 
           </footer>
         </article>
         {/block:Text}
@@ -48,6 +50,7 @@
           </header>
           {/block:Caption}
           <footer>
+            {block:HasTags} 
             {block:Tags}
             <ul>Tagged:
               <li>
@@ -55,6 +58,7 @@
               </li>
               {/block:Tags}
             </ul>
+            {/block:HasTags} 
           </footer>
         </article>
         {/block:Photo}
@@ -66,6 +70,7 @@
           {/block:Description}
           <a href='{URL}'>{Name}</a>
           <footer>
+            {block:HasTags} 
             {block:Tags}
             <ul>Tagged:
               <li>
@@ -73,15 +78,18 @@
               </li>
               {/block:Tags}
             </ul>
+            {/block:HasTags} 
           </footer>
         </article>
         {/block:Link}
         {block:Video}
         <article class='video'>
           <div class='content'>{Video-500}
+            <!-- generate fallback   -->
             <p>
               If the video can not be displayed, download it 
-              <a href='http://vimeo.com/100843896/download?t=1418227080&v=270852594&s=8367e974b694a5efc8ec68f005282a6f'>here</a>
+              <!-- I didn't find a viriable for the download link here -->
+              <a href='#'>here</a>
             </p>
           </div>
           {block:Caption}
@@ -91,6 +99,7 @@
           </header>
           {/block:Caption}
           <footer>
+            {block:HasTags} 
             {block:Tags}
             <ul>Tagged
               <li>
@@ -98,6 +107,7 @@
               </li>
               {/block:Tags}
             </ul>
+            {/block:HasTags} 
           </footer>
         </article>
         {/block:Video}
