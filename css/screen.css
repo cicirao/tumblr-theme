@@ -65,6 +65,7 @@ ul {
     width: 76%; }
 
   main article {
-    max-width: 60em; } }
+    max-width: 60em;
+    padding: 3.375em; } }
 
 /*# sourceMappingURL=screen.css.map */
