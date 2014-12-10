@@ -14,35 +14,26 @@
       <header>
         <h1>{Title}</h1>
         {block:Description}
-        <p>{Description}</p>
+        <h3>{Description}</h3>
         {/block:Description}
       </header>
-      <main id='main'>
+      <main>
         {block:Posts}
         {block:Text}
         <article>
           {block:Title}
           <header>
-            <h2>
-              <a href='{Permalink}'>{Title}</a>
-            </h2>
+            <h2>{Title}</h2>
           </header>
           {/block:Title}
           <div class='content'>{Body}</div>
           <footer>
-            <ul>
-              <li>Tagged
-                <ul>
-                  {block:Tags}
-                  <li>
-                    <a href='{TagURL}'>{Tag}</a>
-                  </li>
-                  {/block:Tags}
-                </ul>
+            {block:Tags}
+            <ul>Tagged:
+              <li>
+                <a href='{TagURL}'>{Tag}</a>
               </li>
-              <li>{LikeButton}</li>
-              <li>{ReblogButton} </li>
-              {/block:HasTags}
+              {/block:Tags}
             </ul>
           </footer>
         </article>
@@ -52,22 +43,17 @@
           <!-- how can I make the img self closed without this comment? -->
           <img class='profile' src='{PhotoURL-HighRes}' alt='{PhotoAlt}' title='{PhotoAlt}' />
           {block:Caption}
-            <div class='caption'>{Caption}</div>
+          <header>
+            <h2>{Caption}</h2>
+          </header>
           {/block:Caption}
           <footer>
-            <ul>
-              <li>Tagged
-                <ul>
-                  {block:Tags}
-                  <li>
-                    <a href='{TagURL}'>{Tag}</a>
-                  </li>
-                  {/block:Tags}
-                </ul>
+            {block:Tags}
+            <ul>Tagged:
+              <li>
+                <a href='{TagURL}'>{Tag}</a>
               </li>
-              <li>{LikeButton}</li>
-              <li>{ReblogButton} </li>
-              {/block:HasTags}
+              {/block:Tags}
             </ul>
           </footer>
         </article>
@@ -75,48 +61,42 @@
         {block:Link}
         <!-- the {Target} is a little tricky, not sure where to put it -->
         <article class='link'>
-          <a href='{URL}'>{Name} {block:Description}
-            <p>{Description}</p>
-          </a>
+          {block:Description}
+            <h2>{Description}</h2>
           {/block:Description}
+          <a href='{URL}'>{Name}</a>
           <footer>
-            <ul>
-              <li>Tagged
-                <ul>
-                  {block:Tags}
-                  <li>
-                    <a href='{TagURL}'>{Tag}</a>
-                  </li>
-                  {/block:Tags}
-                </ul>
+            {block:Tags}
+            <ul>Tagged:
+              <li>
+                <a href='{TagURL}'>{Tag}</a>
               </li>
-              <li>{LikeButton}</li>
-              <li>{ReblogButton} </li>
-              {/block:HasTags}
+              {/block:Tags}
             </ul>
           </footer>
         </article>
         {/block:Link}
         {block:Video}
         <article class='video'>
-          {Video-500}
+          <div class='content'>{Video-500}
+            <p>
+              If the video can not be displayed, download it 
+              <a href='http://vimeo.com/100843896/download?t=1418227080&v=270852594&s=8367e974b694a5efc8ec68f005282a6f'>here</a>
+            </p>
+          </div>
           {block:Caption}
-            <div class='caption'>{Caption}</div>
+          <header>
+            <!-- the caption is h2 in html, but generated as h1 by tumblr -->
+            <h2>{Caption}</h2>
+          </header>
           {/block:Caption}
           <footer>
-            <ul>
-              <li>Tagged
-                <ul>
-                  {block:Tags}
-                  <li>
-                    <a href='{TagURL}'>{Tag}</a>
-                  </li>
-                  {/block:Tags}
-                </ul>
+            {block:Tags}
+            <ul>Tagged
+              <li>
+                <a href='{TagURL}'>{Tag}</a>
               </li>
-              <li>{LikeButton}</li>
-              <li>{ReblogButton} </li>
-              {/block:HasTags}
+              {/block:Tags}
             </ul>
           </footer>
         </article>

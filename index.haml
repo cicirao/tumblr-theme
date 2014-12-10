@@ -14,87 +14,73 @@
         %h1 {Title}
         -# don't know why here needs a \n
         {block:Description}
-        %p {Description}
+        %h3 {Description}
         {/block:Description}
-      %main#main
+      %main
         {block:Posts}
         {block:Text}
         %article
           {block:Title}
           %header
-            %h2
-              %a{href:"{Permalink}"} {Title}
+            %h2 {Title}
           {/block:Title}
           .content {Body}
           %footer
-            %ul
-              %li Tagged
-                %ul
-                  {block:Tags}
-                  %li
-                    %a{href:"{TagURL}"} {Tag}
-                  {/block:Tags}
-              %li {LikeButton}
-              %li {ReblogButton} 
-              {/block:HasTags}
+            {block:Tags}
+            %ul Tagged:
+              %li
+                %a{href:"{TagURL}"} {Tag}
+              {/block:Tags}
         {/block:Text}
         {block:Photo}
         %article.photo
           / how can I make the img self closed without this comment?
           %img.profile{src: "{PhotoURL-HighRes}", alt: "{PhotoAlt}", title: "{PhotoAlt}"}
           {block:Caption}
-            .caption {Caption}
+          %header
+            %h2 {Caption}
           {/block:Caption}
           %footer
-            %ul
-              %li Tagged
-                %ul
-                  {block:Tags}
-                  %li
-                    %a{href:"{TagURL}"} {Tag}
-                  {/block:Tags}
-              %li {LikeButton}
-              %li {ReblogButton} 
-              {/block:HasTags}
+            {block:Tags}
+            %ul Tagged:
+              %li
+                %a{href:"{TagURL}"} {Tag}
+              {/block:Tags}
         {/block:Photo}
         {block:Link}
         / the {Target} is a little tricky, not sure where to put it
         %article.link
-          %a{href:"{URL}"} {Name}
           {block:Description}
-            %p {Description}
+            %h2 {Description}
           {/block:Description}
+          %a{href:"{URL}"} {Name}
+          -# indentation issue
           %footer
-            %ul
-              %li Tagged
-                %ul
-                  {block:Tags}
-                  %li
-                    %a{href:"{TagURL}"} {Tag}
-                  {/block:Tags}
-              %li {LikeButton}
-              %li {ReblogButton} 
-              {/block:HasTags}
+            {block:Tags}
+            %ul Tagged:
+              %li
+                %a{href:"{TagURL}"} {Tag}
+              {/block:Tags}
         {/block:Link}
         {block:Video}
         %article.video
-          {Video-500}
+          .content {Video-500}
+            %p 
+              If the video can not be displayed, download it 
+              %a{href:"http://vimeo.com/100843896/download?t=1418227080&v=270852594&s=8367e974b694a5efc8ec68f005282a6f"} here
+          -# ??
           {block:Caption}
-            .caption {Caption}
+          %header
+            / the caption is h2 in html, but generated as h1 by tumblr
+            %h2 {Caption}
           {/block:Caption}
           %footer
-            %ul
-              %li Tagged
-                %ul
-                  {block:Tags}
-                  %li
-                    %a{href:"{TagURL}"} {Tag}
-                  {/block:Tags}
-              %li {LikeButton}
-              %li {ReblogButton} 
-              {/block:HasTags}
+            {block:Tags}
+            %ul Tagged
+              %li
+                %a{href:"{TagURL}"} {Tag}
+              {/block:Tags}
         {/block:Video}
-
         {/block:Posts}
       %footer
         %a{href:"{RSS}"} RSS Feed   
