@@ -1,17 +1,39 @@
 html {
   font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 150%;
   background-color: #677E52;
-  color: #B7CA79; }
+  color: #B0CC99;
+  text-align: center; }
 
 body {
   width: 100%;
   background: url("utilities/grey.png"); }
+
+#page {
+  width: 80%;
+  margin: 0 auto; }
 
 a {
   text-decoration: none;
   color: #55A5C0; }
   a:hover {
     color: #295F6C; }
+
+h1 {
+  font-size: 3.375em;
+  color: #B7CA79; }
+
+p {
+  line-height: 150%; }
+
+main article {
+  background-color: #89725B;
+  padding: 0.667em;
+  -webkit-border-radius: 0.444em;
+  -moz-border-radius: 0.444em;
+  -ms-border-radius: 0.444em;
+  border-radius: 0.444em; }
+
+.content {
+  text-align: left; }
 
 /*# sourceMappingURL=screen.css.map */

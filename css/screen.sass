@@ -6,13 +6,17 @@
 
 html 
   font: $base-size $smallfont-stack
-  line-height: $line-height
   background-color: $bg-color
   color: $smallfont-color
+  text-align: center
 
 body 
   width: $width
   background: $bg-img
+
+#page
+  width: 80%
+  margin: 0 auto
 
 a 
   text-decoration: none
@@ -20,3 +24,17 @@ a
   &:hover 
     color: $a-hover-color
   
+h1
+  font-size: $h1-size
+  color: $h-color
+
+p
+  line-height: $line-height
+
+main article 
+  background-color: $box-bg
+  padding: $box-padding
+  +border-radius(0.444em)
+
+.content
+  text-align: left
