@@ -7,12 +7,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link rel='alternate' type='application/rss+xml' href='{RSS}' />
     <link rel='stylesheet' href='http://cicirao.github.io/fyl/css/reset.css' />
-    <link rel='stylesheet' href='http://cicirao.github.io/fyl/css/screen.css' />
+    <link rel='stylesheet' href='/css/screen.css' />
   </head>
   <body>
     <div id='page'>
       <header>
-        <h2>{Title}</h2>
+        <h1>{Title}</h1>
         {block:Description}
         <p>{Description}</p>
         {/block:Description}
@@ -23,18 +23,14 @@
         <article>
           {block:Title}
           <header>
-            <h3>
+            <h2>
               <a href='{Permalink}'>{Title}</a>
-            </h3>
+            </h2>
           </header>
           {/block:Title}
           <div class='content'>{Body}</div>
           <footer>
             <ul>
-              <li>
-                <a href='{Permalink}'>Post Permalink</a>
-              </li>
-              {/block:HasTags}
               <li>Tagged
                 <ul>
                   {block:Tags}
@@ -44,41 +40,91 @@
                   {/block:Tags}
                 </ul>
               </li>
+              <li>{LikeButton}</li>
+              <li>{ReblogButton} </li>
               {/block:HasTags}
             </ul>
           </footer>
         </article>
         {/block:Text}
         {block:Photo}
+        <article class='photo'>
           <!-- how can I make the img self closed without this comment? -->
           <img class='profile' src='{PhotoURL-HighRes}' alt='{PhotoAlt}' title='{PhotoAlt}' />
           {block:Caption}
-            {Caption}
+            <div class='caption'>{Caption}</div>
           {/block:Caption}
+          <footer>
+            <ul>
+              <li>Tagged
+                <ul>
+                  {block:Tags}
+                  <li>
+                    <a href='{TagURL}'>{Tag}</a>
+                  </li>
+                  {/block:Tags}
+                </ul>
+              </li>
+              <li>{LikeButton}</li>
+              <li>{ReblogButton} </li>
+              {/block:HasTags}
+            </ul>
+          </footer>
+        </article>
         {/block:Photo}
         {block:Link}
-          <!-- the {Target} is a little tricky, not sure where to put it -->
-          <a href='{URL}'>{Name}</a>
-          {block:Description}
-            {Description}
+        <!-- the {Target} is a little tricky, not sure where to put it -->
+        <article class='link'>
+          <a href='{URL}'>{Name} {block:Description}
+            <p>{Description}</p>
+          </a>
           {/block:Description}
+          <footer>
+            <ul>
+              <li>Tagged
+                <ul>
+                  {block:Tags}
+                  <li>
+                    <a href='{TagURL}'>{Tag}</a>
+                  </li>
+                  {/block:Tags}
+                </ul>
+              </li>
+              <li>{LikeButton}</li>
+              <li>{ReblogButton} </li>
+              {/block:HasTags}
+            </ul>
+          </footer>
+        </article>
         {/block:Link}
         {block:Video}
-        <div class='post'>
+        <article class='video'>
           {Video-500}
           {block:Caption}
-            {Caption}
+            <div class='caption'>{Caption}</div>
           {/block:Caption}
-        </div>
+          <footer>
+            <ul>
+              <li>Tagged
+                <ul>
+                  {block:Tags}
+                  <li>
+                    <a href='{TagURL}'>{Tag}</a>
+                  </li>
+                  {/block:Tags}
+                </ul>
+              </li>
+              <li>{LikeButton}</li>
+              <li>{ReblogButton} </li>
+              {/block:HasTags}
+            </ul>
+          </footer>
+        </article>
         {/block:Video}
-        <ul>
-          <li>{LikeButton}</li>
-          <li>{ReblogButton}</li>
-        </ul>
         {/block:Posts}
       </main>
       <footer>
-        <a href='{RSS}'>RSS Feed    </a>
+        <a href='{RSS}'>RSS Feed   </a>
       </footer>
     </div>
     <script src='http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'></script>

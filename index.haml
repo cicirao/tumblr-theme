@@ -7,11 +7,11 @@
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0"}
     %link{rel:"alternate", type:"application/rss+xml", href:"{RSS}"}
     %link{rel:"stylesheet", href:"http://cicirao.github.io/fyl/css/reset.css"}
-    %link{rel:"stylesheet", href:"http://cicirao.github.io/fyl/css/screen.css"}
+    %link{rel:"stylesheet", href:"/css/screen.css"}
   %body
     #page
       %header
-        %h2 {Title}
+        %h1 {Title}
         -# don't know why here needs a \n
         {block:Description}
         %p {Description}
@@ -22,50 +22,82 @@
         %article
           {block:Title}
           %header
-            %h3
+            %h2
               %a{href:"{Permalink}"} {Title}
           {/block:Title}
           .content {Body}
           %footer
             %ul
-              %li
-                %a{href:"{Permalink}"} Post Permalink
-              {/block:HasTags}
               %li Tagged
                 %ul
                   {block:Tags}
                   %li
                     %a{href:"{TagURL}"} {Tag}
                   {/block:Tags}
+              %li {LikeButton}
+              %li {ReblogButton} 
               {/block:HasTags}
         {/block:Text}
         {block:Photo}
+        %article.photo
           / how can I make the img self closed without this comment?
           %img.profile{src: "{PhotoURL-HighRes}", alt: "{PhotoAlt}", title: "{PhotoAlt}"}
           {block:Caption}
-            {Caption}
+            .caption {Caption}
           {/block:Caption}
+          %footer
+            %ul
+              %li Tagged
+                %ul
+                  {block:Tags}
+                  %li
+                    %a{href:"{TagURL}"} {Tag}
+                  {/block:Tags}
+              %li {LikeButton}
+              %li {ReblogButton} 
+              {/block:HasTags}
         {/block:Photo}
         {block:Link}
-          / the {Target} is a little tricky, not sure where to put it
+        / the {Target} is a little tricky, not sure where to put it
+        %article.link
           %a{href:"{URL}"} {Name}
           {block:Description}
-            {Description}
+            %p {Description}
           {/block:Description}
+          %footer
+            %ul
+              %li Tagged
+                %ul
+                  {block:Tags}
+                  %li
+                    %a{href:"{TagURL}"} {Tag}
+                  {/block:Tags}
+              %li {LikeButton}
+              %li {ReblogButton} 
+              {/block:HasTags}
         {/block:Link}
         {block:Video}
-        .post
+        %article.video
           {Video-500}
           {block:Caption}
-            {Caption}
+            .caption {Caption}
           {/block:Caption}
+          %footer
+            %ul
+              %li Tagged
+                %ul
+                  {block:Tags}
+                  %li
+                    %a{href:"{TagURL}"} {Tag}
+                  {/block:Tags}
+              %li {LikeButton}
+              %li {ReblogButton} 
+              {/block:HasTags}
         {/block:Video}
-        %ul
-          %li {LikeButton}
-          %li {ReblogButton}
+
         {/block:Posts}
       %footer
-        %a{href:"{RSS}"} RSS Feed    
+        %a{href:"{RSS}"} RSS Feed   
     %script{src:"http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"}
     / Inner js is a tricky in haml
     %script

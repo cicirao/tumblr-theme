@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAMA,IAAI;EACF,IAAI,EAAE,mDAA2B;EACjC,WAAW,ECPC,IAAI;EDQhB,gBAAgB,EEPP,OAAO;EFQhB,KAAK,EEVW,IAAI;;AFYtB,IAAI;EACF,KAAK,ECXC,IAAI;EDYV,UAAU,EEXH,yBAAyB;;AFalC,CAAC;EACC,eAAe,EAAE,IAAI;EACrB,KAAK,EEdG,OAAO;EFef,OAAO;IACL,KAAK,EEfO,OAAO",
+"sources": ["screen.sass","_typo.sass","_color.sass"],
+"names": [],
+"file": "screen.css"
+}
