@@ -19,7 +19,7 @@ body
   margin: 0 auto
 
 a 
-  text-decoration: none
+  color: $smallfont-stack
   &:hover 
     color: $a-hover-color
   
@@ -27,9 +27,9 @@ h1
   font-size: $h1-size
   color: $h-color
 
-h2
+h2, link a
   font-size: $h2-size
-  color: $h-color
+  color: $bg-color
 
 h3
   font-size: $h3-size
@@ -37,6 +37,7 @@ h3
 
 p
   line-height: $line-height
+  padding: 0.444em 0
 
 main article 
   background-color: $box-bg
@@ -47,7 +48,7 @@ main article
 .content
   text-align: left
   div
-    width: 100%
+    width: 100% !important
 
 .photo img, .video iframe
   width: 100%
