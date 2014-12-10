@@ -43,6 +43,8 @@ main article {
 
 .content {
   text-align: left; }
+  .content div {
+    width: 100%; }
 
 .photo img, .video iframe {
   width: 100%; }
