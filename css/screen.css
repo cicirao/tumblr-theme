@@ -44,20 +44,13 @@ main article {
 .content {
   text-align: left; }
 
-.photo img {
+.photo img, .video iframe {
   width: 100%; }
 
-.video iframe {
-  width: 100%; }
-
-.tagged {
-  display: block; }
-  .tagged ul {
-    display: inline-block;
-    padding: 0 0.296em; }
-
-ul li {
-  display: inline-block;
-  float: left; }
+ul {
+  display: block;
+  padding: 0 0.296em; }
+  ul li {
+    display: inline-block; }
 
 /*# sourceMappingURL=screen.css.map */
